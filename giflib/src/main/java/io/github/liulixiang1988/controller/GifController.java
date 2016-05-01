@@ -5,6 +5,7 @@ import io.github.liulixiang1988.model.Gif;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.time.LocalDate;
@@ -20,9 +21,9 @@ public class GifController {
         return "home"; //3. 返回模板名称
     }
 
-    @RequestMapping("/gif")
-    public String getDetails(ModelMap modelMap) {
-        Gif gif = gifRepository.findByName("ben-and-mike");
+    @RequestMapping("/gif/{name}")
+    public String getDetails(@PathVariable String name, ModelMap modelMap) {
+        Gif gif = gifRepository.findByName(name);
         modelMap.put("gif", gif);
         return "gif-details";
     }
