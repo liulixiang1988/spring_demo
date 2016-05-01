@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class GifController {
     @RequestMapping("/") //2. 添加映射
     public String listGifs() {
-        return "home";
+        return "home"; //3. 返回模板名称
     }
 }

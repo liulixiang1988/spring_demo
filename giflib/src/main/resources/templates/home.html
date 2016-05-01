@@ -1,12 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
     <title>Giflib | Home</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/app.css}"/>
 </head>
 <body>
-    <h1>首页</h1>
-    <p>hello</p>
-    <img src="http://placehold.it/300x300/5fcf80/ffffff" alt="logo" />
+    <div class="container">
+        <div class="row">
+            <h1>首页</h1>
+            <p>hello</p>
+            <img th:src="@{/gifs/compiler-bot.gif}" alt="logo" />
+        </div>
+    </div>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
 </body>
 </html>
