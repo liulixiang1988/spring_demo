@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Controller //1. 标识控制器
 public class GifController {
@@ -17,7 +18,9 @@ public class GifController {
     private GifRepository gifRepository;
 
     @RequestMapping("/") //2. 添加映射
-    public String listGifs() {
+    public String listGifs(ModelMap modelMap) {
+        List<Gif> allGifs = gifRepository.getAllGifs();
+        modelMap.put("gifs", allGifs);
         return "home"; //3. 返回模板名称
     }
 
